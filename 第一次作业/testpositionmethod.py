@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 
-class Dishotomy:
+class TestPositionMethod:
 
 	def __init__(self,limit_dis=None,max_steps=None):
 		'''
@@ -74,6 +74,6 @@ class Dishotomy:
 
 
 if __name__ == '__main__':
-	d = Dishotomy(limit_dis = 0.0001)
+	d = TestPositionMethod(limit_dis = 0.0001)
 	f = lambda x:x**2 + 2*x - 3
 	d.fit(f, -2, 2,'x^2 + 2x - 3')
