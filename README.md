@@ -15,3 +15,6 @@
   ![](第二次作业/牛顿法/iterator.gif)  
 3.[弦截法](第二次作业/弦截法/secantMethod.py)  
   ![](第二次作业/弦截法/iterator2.gif)  
+## 第三次作业
+[贝尔斯托法](./第三次作业/bairstow.py)
+![](./第三次作业/bairstow.png)
