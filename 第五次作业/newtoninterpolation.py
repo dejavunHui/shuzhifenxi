@@ -16,7 +16,7 @@ class NewtonInterPolation:
     def clear(self):
         self.b.clear()
 
-    def initB(self):
+    def initB(self,x,fx):
         for i in range(1, len(x)+1):
             # print(self.f(x[:i], fx[:i]))
             self.b.append(self.f(x[:i], fx[:i]))
@@ -24,7 +24,7 @@ class NewtonInterPolation:
     def run(self, xp, x, fx):
         # self.f(x, fx)
         if len(self.b) == 0:
-            self.initB()
+            self.initB(x,fx)
 
         rs = 0
         for i in range(len(self.b)):
@@ -68,7 +68,7 @@ if __name__ == '__main__':
     fx = [1, 2, -1]
     print('f(1.5)=%s' % n.run(xp=1.5, x=x, fx=fx))
     n.plot(1.5, x, fx)
-
+    #
     # plt.figure()
     print(n)
     n.clear()
