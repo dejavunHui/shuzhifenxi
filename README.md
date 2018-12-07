@@ -22,6 +22,10 @@
 [最小二测法](./第四次作业/leastsquaremethod.py)
 ![](./第四次作业/最小二乘.png)
 ## 第五次作业
-[牛顿差值法](./第五次作业/newtoninterpolation.py)
+[牛顿插值法](./第五次作业/newtoninterpolation.py)
 ![](./第五次作业/newton0.png)
 ![](./第五次作业/newton1.png)
+## 第六次作业
+[拉格朗日插值法](./第六次作业/lagrangeinterpolation.py)
+![](./第六次作业/largange0.png)
+![](./第六次作业/largange1.png)
