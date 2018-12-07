@@ -18,3 +18,10 @@
 ## 第三次作业
 [贝尔斯托法](./第三次作业/bairstow.py)
 ![](./第三次作业/bairstow.png)
+## 第四次作业
+[最小二测法](./第四次作业/leastsquaremethod.py)
+![](./第四次作业/最小二乘.png)
+## 第五次作业
+[牛顿差值法](./第五次作业/newtoninterpolation.py)
+![](./第五次作业/newton0.png)
+![](./第五次作业/newton1.png)
