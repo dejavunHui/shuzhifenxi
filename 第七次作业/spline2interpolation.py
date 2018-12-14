@@ -57,7 +57,7 @@ class Spline2Interpolation:
             plt.scatter(i ,j, c='blue')
 
         plt.scatter(x, y, c='red')
-        plt.annotate(s='(%s, %s)'%(x,y),xy=(x,y),xytext=(x+1,y+1),arrowprops={'arrowstyle':'->'})
+        plt.annotate(s='(%s, %s)'%(x,y),xy=(x,y),xytext=(x+.3,y+.3),arrowprops={'arrowstyle':'->'})
 
         # a = np.arange(-1*max(xs), max(xs), 0.1)
         # b = [np.multiply(self.S[getK(i)], [i**2, i, 1]).sum() for i in a]
