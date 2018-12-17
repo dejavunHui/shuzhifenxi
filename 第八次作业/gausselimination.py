@@ -16,14 +16,29 @@ class GausseLimination:
     def __repr__(self):
         return '1607094148-卢辉'
 
-    def run(self, x, m, n):
-        X = self.gauss(x, m, n)
+    def run(self, x):
+
+        X = self.gauss(x)
         self.X_ = X
         print('上三角矩阵:')
         print(X)
+
+        m, n = np.shape(X)
+        self.rs = []
+        for i in range(m-1, 0, -1):
+            for j in range(n-2, 0, -1):
+                if i == m-1:
+                    try:
+                        self.rs.append(X[i, -1]/X[i, i])
+                    except ZeroDivisionError:
+                        print('方程无解')
+                    break
+                temp = np.sum(np.multiply(self.rs, X[i, i+1:]))
+                self.rs.insert(0, (X[i, -1]-temp)/X[i, i])
+        print('解为:',self.rs)
         self.plot()
 
-    def gauss(self, x, m, n):
+    def gauss(self, x):
         '''
         顺序高斯消去
         :param x: 矩阵元素
@@ -31,7 +46,9 @@ class GausseLimination:
         :param n: 矩阵列数
         :return:
         '''
-        X = np.matrix(np.array(x).reshape(m, n).astype(float))
+        # X = np.matrix(np.array(x).reshape(m, n).astype(float))
+        X = x
+        m, n = np.shape(X)
         self.X = X.copy()
         print('原矩阵:')
         print(X)
@@ -42,7 +59,7 @@ class GausseLimination:
         for i in range(1, N):
             #增加主元的比较与交换
             for k in range(i, N):
-                if X[k, i-1] > X[i-1, i-1]:
+                if abs(X[k, i-1])*1000 > abs(X[i-1, i-1])*1000:
                     X[i], X[k] = X[k], X[i]
             for j in range(i, N):
                 try:
@@ -75,17 +92,21 @@ class GausseLimination:
 
 if __name__ == '__main__':
 
-    x = [2, -1, 3, 1, 4, 2, 5, 4, 1, 2, 0, 7]
-    m = 3
-    n = 4
+    # x = [2, -1, 3, 1, 4, 2, 5, 4, 1, 2, 0, 7]
+    # m = 3
+    # n = 4
+    # x = np.matrix(np.array(x).reshape(m, n).astype(float))
     g = GausseLimination()
-    g.run(x, m, n)
-    print(g)
-    print(g.X_)
-    print(g.X)
+    # g.run(x)
+    # print(g)
+    # print(g.X_)
+    # print(g.X)
 
-    x = [i for i in range(1,10)]
-    m = 3
-    n = 3
-    g.run(x, m, n)
+    x = np.array([
+        [70, 1, 0, 636],
+        [60, -1, -1, 518],
+        [40, 0, 1, 307]
+    ]).astype(float)
+    x = np.matrix(x)
+    g.run(x)
     print(g)
