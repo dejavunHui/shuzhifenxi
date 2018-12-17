@@ -29,3 +29,9 @@
 [拉格朗日插值法](./第六次作业/lagrangeinterpolation.py)
 ![](./第六次作业/largange0.png)
 ![](./第六次作业/largange1.png)
+## 第七次作业  
+[二次样条插值](./第七次作业/spline2interpolation.py)
+![](./第七次作业/spline2.png)
+## 第八次作业
+[高斯消去法](./第八次作业/gausselimination.py)
+![](./第八次作业/g.png)
