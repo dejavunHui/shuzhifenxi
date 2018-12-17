@@ -18,3 +18,5 @@ for i in range(1, N):
 **详细代码[点这里](./gausselimination.py)**
 ### 效果图
 ![](./g.png)
+
+**增加了交换主元**

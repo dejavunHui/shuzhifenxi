@@ -40,6 +40,10 @@ class GausseLimination:
             X[n:m]=0
 
         for i in range(1, N):
+            #增加主元的比较与交换
+            for k in range(i, N):
+                if X[k, i-1] > X[i-1, i-1]:
+                    X[i], X[k] = X[k], X[i]
             for j in range(i, N):
                 try:
                     c = X[j, i-1]/X[i-1, i-1]
@@ -76,5 +80,12 @@ if __name__ == '__main__':
     n = 4
     g = GausseLimination()
     g.run(x, m, n)
+    print(g)
     print(g.X_)
     print(g.X)
+
+    x = [i for i in range(1,10)]
+    m = 3
+    n = 3
+    g.run(x, m, n)
+    print(g)
