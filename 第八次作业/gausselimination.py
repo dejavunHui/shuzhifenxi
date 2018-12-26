@@ -12,7 +12,8 @@ class GausseLimination:
     def __init__(self):
         self.X = None
         self.X_ = None
-
+    def __str__(self):
+        return self.__repr__()
     def __repr__(self):
         return '1607094148-卢辉'
 
@@ -25,16 +26,16 @@ class GausseLimination:
 
         m, n = np.shape(X)
         self.rs = []
-        for i in range(m-1, 0, -1):
-            for j in range(n-2, 0, -1):
-                if i == m-1:
-                    try:
-                        self.rs.append(X[i, -1]/X[i, i])
-                    except ZeroDivisionError:
-                        print('方程无解')
-                    break
-                temp = np.sum(np.multiply(self.rs, X[i, i+1:]))
-                self.rs.insert(0, (X[i, -1]-temp)/X[i, i])
+        for i in range(m-1, -1, -1):
+            # for j in range(n-2, -1, -1):
+            if i == m-1:
+                try:
+                    self.rs.append(X[i, -1]/X[i, i])
+                except ZeroDivisionError:
+                    print('方程无解')
+                continue
+            temp = np.sum(np.multiply(self.rs, X[i, i+1:-1]))
+            self.rs.insert(0, (X[i, -1]-temp)/X[i, i])
         print('解为:',self.rs)
         self.plot()
 
@@ -102,10 +103,15 @@ if __name__ == '__main__':
     # print(g.X_)
     # print(g.X)
 
+    # x = np.array([
+    #     [70, 1, 0, 636],
+    #     [60, -1, -1, 518],
+    #     [40, 0, 1, 307]
+    # ]).astype(float)
     x = np.array([
-        [70, 1, 0, 636],
-        [60, -1, -1, 518],
-        [40, 0, 1, 307]
+        [2, 2, 3, 3],
+        [4, 7, 7, 1],
+        [-2, 4, 5, -7]
     ]).astype(float)
     x = np.matrix(x)
     g.run(x)
